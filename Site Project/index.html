@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Смес Здраве е натурална билкова смес от куркума, джинджифил, канела и още 5 съставки. Подпомага детоксикацията, тонуса и нормализирането на кръвна захар." />
+  <meta name="keywords" content="смес здраве, билкова смес, натурални подправки, детоксикация, куркума, джинджифил, susam shop" />
+  <meta property="og:title" content="Смес „Здраве" – натурална билкова смес за тонус и детоксикация" />
+  <meta property="og:description" content="Открийте ползите на 8 лечебни подправки в една удобна смес. Подходяща за ежедневна употреба." />
+  <meta property="og:type" content="website" />
+  <title>Смес „Здраве" – натурална билкова смес за тонус и детоксикация</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --green-dark:  #2D4A2D;
+      --green-mid:   #3D6B3D;
+      --green-light: #EBF2EB;
+      --ivory:       #F7F2E8;
+      --ivory-dark:  #EDE8DA;
+      --brown:       #8B5E3C;
+      --gold:        #C9A84C;
+      --gold-light:  #E8D49A;
+      --text-dark:   #1C1C1C;
+      --text-mid:    #4A4A4A;
+      --white:       #FFFFFF;
+      --font-display:'Playfair Display', Georgia, serif;
+      --font-body:   'Lato', system-ui, sans-serif;
+      --radius:      8px;
+      --shadow:      0 4px 24px rgba(45,74,45,0.10);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--text-dark);
+      background: var(--ivory);
+    }
+    img { max-width: 100%; display: block; }
+    a { color: var(--green-dark); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    a:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { .fade-in { opacity: 1; transform: none; transition: none; } }
+
+    h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 700; line-height: 1.25; }
+    h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); }
+    h2 { font-size: clamp(1.7rem, 3.5vw, 2.6rem); }
+    h3 { font-size: clamp(1.15rem, 2vw, 1.5rem); }
+    p { margin-bottom: 1rem; }
+    p:last-child { margin-bottom: 0; }
+
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem; }
+    .container--narrow { max-width: 740px; margin: 0 auto; padding: 0 1.5rem; }
+    section { padding: 5.5rem 0; }
+
+    /* EYEBROW LABEL */
+    .eyebrow {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.7rem;
+    }
+
+    /* DIVIDER */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 0;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold-light), transparent);
+    }
+    .divider__dot {
+      width: 8px; height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+      opacity: 0.6;
+    }
+
+    /* ========= NAVBAR ========= */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--green-dark);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.15);
+    }
+    .navbar__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem 1.5rem;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .navbar__brand {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--ivory);
+    }
+    .navbar__brand span { color: var(--gold); }
+    .navbar__links { display: flex; gap: 1.8rem; list-style: none; }
+    .navbar__links a {
+      color: rgba(247,242,232,0.82);
+      font-size: 0.88rem;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .navbar__links a:hover { color: var(--gold); text-decoration: none; }
+
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--ivory); margin: 5px 0; }
+
+    @media (max-width: 720px) {
+      .nav-toggle { display: block; }
+      .navbar__links {
+        display: none; flex-direction: column; gap: 0;
+        position: absolute; top: 100%; left: 0; right: 0;
+        background: var(--green-dark);
+        padding: 1rem 1.5rem 1.5rem;
+      }
+      .navbar__links.open { display: flex; }
+      .navbar__links a { padding: 0.5rem 0; font-size: 1rem; }
+    }
+
+    /* ========= HERO ========= */
+    .hero {
+      background: linear-gradient(140deg, var(--green-dark) 0%, #3A6040 55%, #4A7C4A 100%);
+      color: var(--ivory);
+      padding: 7rem 0 6rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Ccircle cx='40' cy='40' r='1' fill='%23C9A84C' opacity='0.12'/%3E%3C/svg%3E") repeat;
+      pointer-events: none;
+    }
+    .hero__inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .hero__eyebrow {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.1rem;
+    }
+    .hero__title { color: var(--ivory); margin-bottom: 1.5rem; }
+    .hero__title em { font-style: italic; color: var(--gold-light); }
+    .hero__lead {
+      font-size: 1.1rem;
+      color: rgba(247,242,232,0.85);
+      margin-bottom: 2.2rem;
+    }
+    .hero__cta {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--green-dark);
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 0.9rem 2.2rem;
+      border-radius: var(--radius);
+      transition: background 0.2s, transform 0.15s;
+    }
+    .hero__cta:hover { background: var(--gold-light); transform: translateY(-2px); text-decoration: none; }
+
+    .hero__visual { display: flex; justify-content: center; }
+    .hero__circle {
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,168,76,0.35);
+      background: radial-gradient(circle at 38% 38%, rgba(201,168,76,0.18), transparent 60%), rgba(255,255,255,0.04);
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    @media (max-width: 760px) {
+      .hero__inner { grid-template-columns: 1fr; text-align: center; }
+      .hero__visual { display: none; }
+    }
+
+    /* ========= SECTION HEADER ========= */
+    .section-header { text-align: center; margin-bottom: 3.5rem; }
+    .section-header h2 { color: var(--green-dark); margin-bottom: 0.8rem; }
+    .section-header p { color: var(--text-mid); max-width: 560px; margin: 0 auto; font-size: 1.05rem; }
+
+    /* ========= ABOUT ========= */
+    .about { background: var(--white); }
+    .about__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .about__text h2 { color: var(--green-dark); margin-bottom: 1.2rem; }
+    .about__text p { color: var(--text-mid); }
+    .about__badges { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 2rem; }
+    .about__badge {
+      background: var(--green-light);
+      border: 1px solid rgba(45,74,45,0.15);
+      border-radius: 100px;
+      padding: 0.4rem 1rem;
+      font-size: 0.83rem;
+      font-weight: 700;
+      color: var(--green-dark);
+    }
+    .about__quote {
+      background: var(--green-dark);
+      border-radius: 12px;
+      padding: 2.8rem;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .about__quote::before {
+      content: '"';
+      font-family: var(--font-display);
+      font-size: 10rem;
+      color: var(--gold);
+      opacity: 0.13;
+      position: absolute;
+      top: -1.5rem; left: 1rem;
+      line-height: 1;
+    }
+    .about__quote p {
+      position: relative;
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: rgba(247,242,232,0.9);
+    }
+    .about__quote cite {
+      display: block;
+      margin-top: 1.2rem;
+      font-style: normal;
+      font-size: 0.83rem;
+      color: var(--gold-light);
+      font-weight: 700;
+    }
+    @media (max-width: 700px) { .about__grid { grid-template-columns: 1fr; } }
+
+    /* ========= BENEFITS ========= */
+    .benefits { background: var(--ivory); }
+    .benefits__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.4rem;
+    }
+    .benefit-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 2rem 1.6rem;
+      box-shadow: 0 2px 10px rgba(45,74,45,0.06);
+      border-top: 3px solid var(--gold);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .benefit-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .benefit-card__icon {
+      width: 44px; height: 44px;
+      background: var(--green-light);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1rem;
+    }
+    .benefit-card h3 { font-size: 1rem; color: var(--green-dark); margin-bottom: 0.5rem; }
+    .benefit-card p { font-size: 0.91rem; color: var(--text-mid); margin: 0; }
+    @media (max-width: 800px) { .benefits__grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 500px) { .benefits__grid { grid-template-columns: 1fr; } }
+
+    /* ========= INGREDIENTS ========= */
+    .ingredients { background: var(--white); }
+    .ingredients__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 3rem;
+    }
+    .ingredient {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+      padding: 1.4rem 0;
+      border-bottom: 1px solid rgba(45,74,45,0.08);
+    }
+    .ingredient__num {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--gold);
+      opacity: 0.45;
+      line-height: 1;
+      min-width: 2.2rem;
+      text-align: right;
+    }
+    .ingredient h4 { color: var(--green-dark); margin-bottom: 0.3rem; font-size: 1rem; }
+    .ingredient p { font-size: 0.88rem; color: var(--text-mid); margin: 0; }
+    @media (max-width: 640px) { .ingredients__grid { grid-template-columns: 1fr; } }
+
+    /* ========= USAGE ========= */
+    .usage { background: var(--green-dark); }
+    .usage .section-header .eyebrow { color: var(--gold); }
+    .usage .section-header h2 { color: var(--ivory); }
+    .usage .section-header p { color: rgba(247,242,232,0.72); }
+
+    .usage__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .usage__card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(201,168,76,0.25);
+      border-radius: var(--radius);
+      padding: 2rem 1.6rem;
+      text-align: center;
+    }
+    .usage__num {
+      font-family: var(--font-display);
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.9rem;
+    }
+    /* FIX: explicit light colors for all text inside dark usage section */
+    .usage__card h3 {
+      color: var(--ivory);
+      font-size: 1.05rem;
+      margin-bottom: 0.6rem;
+    }
+    .usage__card p {
+      font-size: 0.9rem;
+      color: rgba(247,242,232,0.78);
+      margin: 0;
+    }
+    .usage__note {
+      margin: 3rem auto 0;
+      padding: 1.2rem 2rem;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.28);
+      border-radius: var(--radius);
+      font-size: 0.87rem;
+      color: var(--gold-light);
+      max-width: 580px;
+      text-align: center;
+    }
+    @media (max-width: 700px) { .usage__grid { grid-template-columns: 1fr; } }
+
+    /* ========= COMPANY ========= */
+    .company { background: var(--ivory); }
+    .company__inner {
+      display: grid;
+      grid-template-columns: 1fr 2.2fr;
+      gap: 3.5rem;
+      align-items: start;
+    }
+    .stat-card {
+      background: var(--green-dark);
+      color: var(--ivory);
+      border-radius: var(--radius);
+      padding: 2rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .stat-card__num {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .stat-card__label { font-size: 0.83rem; color: rgba(247,242,232,0.7); margin-top: 0.4rem; }
+    .company__text h2 { color: var(--green-dark); margin-bottom: 1.2rem; }
+    .company__text p { color: var(--text-mid); }
+    @media (max-width: 700px) { .company__inner { grid-template-columns: 1fr; } }
+
+    /* ========= CTA BANNER ========= */
+    .cta { background: linear-gradient(135deg, var(--brown) 0%, #6B3C1A 100%); text-align: center; padding: 5rem 0; }
+    .cta h2 { color: var(--ivory); margin-bottom: 0.8rem; }
+    .cta p { color: rgba(247,242,232,0.8); font-size: 1.05rem; max-width: 480px; margin: 0 auto 2.2rem; }
+    .cta__btn {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--green-dark);
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 1rem 2.5rem;
+      border-radius: var(--radius);
+      transition: background 0.2s, transform 0.15s;
+    }
+    .cta__btn:hover { background: var(--gold-light); transform: translateY(-2px); text-decoration: none; }
+
+    /* ========= FOOTER ========= */
+    footer {
+      background: var(--green-dark);
+      color: rgba(247,242,232,0.65);
+      padding: 3.5rem 0 2rem;
+      font-size: 0.87rem;
+    }
+    .footer__grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 2.5rem;
+      padding-bottom: 2rem;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .footer__brand {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      color: var(--ivory);
+      margin-bottom: 0.7rem;
+    }
+    .footer__brand span { color: var(--gold); }
+    footer h4 {
+      color: var(--ivory);
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 0.8rem;
+    }
+    footer ul { list-style: none; }
+    footer ul li { margin-bottom: 0.4rem; }
+    footer ul li a { color: rgba(247,242,232,0.6); transition: color 0.2s; }
+    footer ul li a:hover { color: var(--gold); text-decoration: none; }
+    .footer__bottom { text-align: center; font-size: 0.79rem; color: rgba(247,242,232,0.35); }
+    @media (max-width: 640px) { .footer__grid { grid-template-columns: 1fr; gap: 1.5rem; } }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" aria-label="Основна навигация">
+    <div class="navbar__inner">
+      <a href="#" class="navbar__brand">Смес <span>„Здраве"</span></a>
+      <button class="nav-toggle" aria-label="Отвори меню" aria-expanded="false" onclick="this.setAttribute('aria-expanded', document.getElementById('nav-links').classList.toggle('open')); return false;">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="navbar__links" id="nav-links">
+        <li><a href="#about">За сместа</a></li>
+        <li><a href="#benefits">Ползи</a></li>
+        <li><a href="#ingredients">Съставки</a></li>
+        <li><a href="#usage">Употреба</a></li>
+        <li><a href="#company">За фирмата</a></li>
+        <li><a href="#order">Поръчка</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero__inner">
+      <div class="fade-in">
+        <p class="hero__eyebrow">Натурална билкова смес · Susam.shop</p>
+        <h1 class="hero__title">Смес <em>„Здраве"</em> — чаена лъжичка здраве всеки ден</h1>
+        <p class="hero__lead">Осем лечебни подправки в едно — подпомага детоксикацията, нормализирането на кръвна захар и холестерол, и носи прилив на енергия при редовна употреба.</p>
+        <a href="#order" class="hero__cta">Към продукта</a>
+      </div>
+      <div class="hero__visual fade-in">
+        <div class="hero__circle">
+          <svg width="210" height="210" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <ellipse cx="110" cy="138" rx="86" ry="40" fill="rgba(201,168,76,0.12)" stroke="#C9A84C" stroke-width="1.2"/>
+            <path d="M24 138 Q32 96 110 86 Q188 96 196 138" stroke="#C9A84C" stroke-width="1.2" fill="rgba(45,74,45,0.3)"/>
+            <ellipse cx="110" cy="138" rx="86" ry="11" fill="rgba(201,168,76,0.18)" stroke="#C9A84C" stroke-width="0.8"/>
+            <circle cx="84" cy="122" r="4.5" fill="#C9A84C" opacity="0.65"/>
+            <circle cx="110" cy="116" r="5.5" fill="#E8D49A" opacity="0.55"/>
+            <circle cx="136" cy="124" r="3.5" fill="#8B5E3C" opacity="0.75"/>
+            <circle cx="96" cy="110" r="3" fill="#C9A84C" opacity="0.45"/>
+            <circle cx="123" cy="112" r="4" fill="#3D6B3D" opacity="0.55"/>
+            <path d="M90 82 Q86 70 90 58" stroke="rgba(247,242,232,0.28)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <path d="M110 78 Q106 64 110 50" stroke="rgba(247,242,232,0.22)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <path d="M130 80 Q126 68 130 56" stroke="rgba(247,242,232,0.18)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- DIVIDER -->
+  <div class="container" style="padding: 2.5rem 1.5rem 0;">
+    <div class="divider"><div class="divider__dot"></div></div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about" class="about">
+    <div class="container">
+      <div class="about__grid">
+        <div class="about__text fade-in">
+          <span class="eyebrow">За сместа</span>
+          <h2>Какво е Смес „Здраве"?</h2>
+          <p>Смес „Здраве" е натурална комбинация от осем лечебни подправки, съставена от екипа на Susam.shop въз основа на дългогодишен опит с клиенти, търсещи природни решения за своето здраве.</p>
+          <p>Продуктът е хранителна добавка и не замества медикаментозно лечение. Предназначен е за хора, които искат да подкрепят тялото си по естествен начин — с проверени съставки, без изкуствени добавки.</p>
+          <div class="about__badges">
+            <span class="about__badge">100% натурален</span>
+            <span class="about__badge">Без изкуствени добавки</span>
+            <span class="about__badge">20+ години опит</span>
+          </div>
+        </div>
+        <div class="about__quote fade-in">
+          <p>Когато преди повече от 20 години открихме магазина, не предполагахме, че половината клиенти ще използват подправките не само за готвене, а и за здраве. Тяхното споделяне ни вдъхнови да създадем тази смес — вече три години тя помага на хора да се чувстват отлично.</p>
+          <cite>— Екипът на Susam.shop, гр. Добрич</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section id="benefits" class="benefits">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="eyebrow">Защо Смес „Здраве"</span>
+        <h2>Основни ползи за организма</h2>
+        <p>Всяка съставка е подбрана заради конкретния си принос — заедно те действат синергично.</p>
+      </div>
+      <div class="benefits__grid">
+
+        <div class="benefit-card fade-in">
+          <div class="benefit-card__icon">
+            <svg width="20" height="20" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M11 3C7 3 4 6.5 4 10c0 4 4 9 7 9s7-5 7-9c0-3.5-3-7-7-7z" stroke="#2D4A2D" stroke-width="1.5" fill="none"/></svg>
+          </div>
+          <h3>Детоксикация</h3>
+          <p>Спомага за изчистване на токсините, подкрепяйки черния дроб и бъбреците в ежедневната им работа.</p>
+        </div>
+
+        <div class="benefit-card fade-in">
+          <div class="benefit-card__icon">
+            <svg width="20" height="20" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M11 4v14M4 11h14" stroke="#2D4A2D" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Тонус и енергия</h3>
+          <p>Редовната употреба носи прилив на енергия — особено усетим при умора и липса на жизненост.</p>
+        </div>
+
+        <div class="benefit-card fade-in">
+          <div class="benefit-card__icon">
+            <svg width="20" height="20" viewBox="0 0 22 22" fill="none" aria-hidden="true"><rect x="4" y="9" width="14" height="10" rx="2" stroke="#2D4A2D" stroke-width="1.5" fill="none"/><path d="M8 9V7a3 3 0 016 0v2" stroke="#2D4A2D" stroke-width="1.5"/></svg>
+          </div>
+          <h3>Нормализиране на кръвна захар</h3>
+          <p>Куркумата, канелата и карамфилът имат доказано действие при регулирането на нивата на кръвна захар.</p>
+        </div>
+
+        <div class="benefit-card fade-in">
+          <div class="benefit-card__icon">
+            <svg width="20" height="20" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M4 14s1-1 4-1 5 2 8 2 4-1 4-1" stroke="#2D4A2D" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Понижаване на холестерол</h3>
+          <p>Ябълковият пектин е особено ефективен при контрол на холестерола и поддържане на сърдечносъдовото здраве.</p>
+        </div>
+
+        <div class="benefit-card fade-in">
+          <div class="benefit-card__icon">
+            <svg width="20" height="20" viewBox="0 0 22 22" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="#2D4A2D" stroke-width="1.5" fill="none"/><path d="M8 13c.8 1 4.2 1 5 0" stroke="#2D4A2D" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Здраве на кожата</h3>
+          <p>Кардамонът и куркумата допринасят за по-чиста и светла кожа — ефект, забелязан от много редовни потребители.</p>
+        </div>
+
+        <div class="benefit-card fade-in">
+          <div class="benefit-card__icon">
+            <svg width="20" height="20" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M11 5c-3.5 0-6 2.5-5 6 .7 2.5 5 6 5 6s4.3-3.5 5-6c1-3.5-1.5-6-5-6z" stroke="#2D4A2D" stroke-width="1.5" fill="none"/></svg>
+          </div>
+          <h3>Намаляване на ставни болки</h3>
+          <p>Клиентите съобщават за значително намаляване на болките в ставите, свързани с възпаления и артрит.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- INGREDIENTS -->
+  <section id="ingredients" class="ingredients">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="eyebrow">Съставът</span>
+        <h2>Осем съставки, едно действие</h2>
+        <p>Всяка подправка е избрана заради специфичните си лечебни свойства. Заедно те образуват смес с широк спектър от ползи.</p>
+      </div>
+      <div class="ingredients__grid">
+
+        <div class="ingredient fade-in">
+          <span class="ingredient__num">01</span>
+          <div>
+            <h4>Куркума</h4>
+            <p>Подобрява храносмилането, укрепва костите, детоксикира черния дроб и подпомага паметта. Куркуминът е един от най-изследваните природни противовъзпалителни агенти.</p>
+          </div>
+        </div>
+
+        <div class="ingredient fade-in">
+          <span class="ingredient__num">02</span>
+          <div>
+            <h4>Джинджифил</h4>
+            <p>Повишава имунитета, насърчава отслабването и подпомага дихателната система. Ускорява метаболизма чрез термичния си ефект.</p>
+          </div>
+        </div>
+
+        <div class="ingredient fade-in">
+          <span class="ingredient__num">03</span>
+          <div>
+            <h4>Кориандър</h4>
+            <p>Богат на витамини К и С, подобрява бъбречната функция и подпомага детоксикацията. Има мек, свеж аромат.</p>
+          </div>
+        </div>
+
+        <div class="ingredient fade-in">
+          <span class="ingredient__num">04</span>
+          <div>
+            <h4>Канела</h4>
+            <p>Регулира кръвното налягане и нормализира нивата на кръвна захар. Един от ключовите компоненти при диабетна подкрепа.</p>
+          </div>
+        </div>
+
+        <div class="ingredient fade-in">
+          <span class="ingredient__num">05</span>
+          <div>
+            <h4>Карамфил</h4>
+            <p>Регулира кръвната захар, ускорява метаболизма и има антипаразитно действие. Съдържа евгенол — мощен природен антиоксидант.</p>
+          </div>
+        </div>
+
+        <div class="ingredient fade-in">
+          <span class="ingredient__num">06</span>
+          <div>
+            <h4>Кардамон</h4>
+            <p>Насърчава детоксикацията, енергизира и подобрява състоянието на косата и кожата. Подпомага и бъбречната функция.</p>
+          </div>
+        </div>
+
+        <div class="ingredient fade-in">
+          <span class="ingredient__num">07</span>
+          <div>
+            <h4>Ябълков пектин</h4>
+            <p>Контролира телесното тегло, понижава холестерола и балансира кръвната захар. Помага за изхвърлянето на тежки метали от тялото.</p>
+          </div>
+        </div>
+
+        <div class="ingredient fade-in">
+          <span class="ingredient__num">08</span>
+          <div>
+            <h4>Черен пипер</h4>
+            <p>Засилва усвояването на куркумина с до 2000%. Без него ползите от куркумата се губят в значителна степен.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- USAGE -->
+  <section id="usage" class="usage">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="eyebrow">Начин на приготвяне</span>
+        <h2>Как се приема сместа</h2>
+        <p>Употребата е лесна и гъвкава — сместа се вписва без усилие в ежедневния режим.</p>
+      </div>
+      <div class="usage__grid">
+
+        <div class="usage__card fade-in">
+          <div class="usage__num">1</div>
+          <h3>В студена напитка</h3>
+          <p>Разтворете 1 чаена лъжичка в айрян, вода, сок или прясно мляко. Консумирайте сутрин или вечер.</p>
+        </div>
+
+        <div class="usage__card fade-in">
+          <div class="usage__num">2</div>
+          <h3>Като топъл чай</h3>
+          <p>Варете 1 ч.л. в чаша вода 3 минути. Прецедете и добавете лимон и мед на вкус.</p>
+        </div>
+
+        <div class="usage__card fade-in">
+          <div class="usage__num">3</div>
+          <h3>Дозировка</h3>
+          <p>150 г са достатъчни за едномесечен прием от един човек. Вкусът е наситен и пикантен.</p>
+        </div>
+
+      </div>
+      <p class="usage__note">Сместа е хранителна добавка и не замества медикаментозно лечение. При съмнения се консултирайте с лекар.</p>
+    </div>
+  </section>
+
+  <!-- COMPANY -->
+  <section id="company" class="company">
+    <div class="container">
+      <div class="company__inner">
+        <div class="fade-in">
+          <div class="stat-card">
+            <div class="stat-card__num">20+</div>
+            <div class="stat-card__label">Години опит в подправките</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card__num">3</div>
+            <div class="stat-card__label">Години Смес „Здраве" на пазара</div>
+          </div>
+        </div>
+        <div class="company__text fade-in">
+          <span class="eyebrow">За фирмата</span>
+          <h2>За Susam.shop</h2>
+          <p>Susam.shop е семеен магазин за подправки на едро и дребно, намиращ се на Общинския пазар в Добрич. С над двадесет години в бизнеса, фирмата е изградила репутация на доставчик на висококачествени, натурални продукти — подправки, билки, семена, брашна и специализирани смеси.</p>
+          <p>Смес „Здраве" е роден от реалния опит с клиентите. Хората, купували куркума за ставите или канела за кръвната захар, вдъхновиха екипа да събере всичко в едно удобно решение. Резултатът е продукт, доказан в ежедневната практика на реални хора.</p>
+          <p>Магазинът изпраща поръчки с Еконт и Спиди из цялата страна.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="order" class="cta">
+    <div class="container--narrow">
+      <h2>Поръчайте Смес „Здраве" онлайн</h2>
+      <p>Налична в разфасовки 150 г, 300 г и 500 г. Доставка с Еконт или Спиди до офис или адрес.</p>
+      <a href="https://susam.shop/product/smes-zdrave-chaena-lazhichka-zdrave-vseki-den/" target="_blank" rel="noopener" class="cta__btn">Виж продукта в магазина</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand">Смес <span>„Здраве"</span></div>
+          <p>Информативен сайт за натурална билкова смес от Susam.shop, гр. Добрич.</p>
+        </div>
+        <div>
+          <h4>Навигация</h4>
+          <ul>
+            <li><a href="#about">За сместа</a></li>
+            <li><a href="#benefits">Ползи</a></li>
+            <li><a href="#ingredients">Съставки</a></li>
+            <li><a href="#usage">Употреба</a></li>
+            <li><a href="#company">За фирмата</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Susam.shop</h4>
+          <ul>
+            <li><a href="https://susam.shop" target="_blank" rel="noopener">susam.shop</a></li>
+            <li><a href="tel:+359898567331">+359 89 85 67 331</a></li>
+            <li><a href="#company">Общински пазар, Добрич</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>Информативен сайт, създаден за учебни цели. Съдържанието е базирано на публично достъпна информация от susam.shop.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
