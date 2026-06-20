@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://smes-zdrave.zdravko-home.org/sitemap.xml
